@@ -110,16 +110,10 @@ function noteRenderRep(cate, note, div){
 }
 
 /**노트 기록 함수(임시) */
-function noteSav(savedText){
+function noteSav(){
     let noteText = document.getElementById("text-box");
-    let textData = noteText.innerHTML;
 
-    if(textData == savedText){
-        return textData;
+    if (noteText.addEventListener){
+        noteText.addEventListener("input", )
     }
-    // note_text.json에 textarea변화 감지 후 노트 저장
-}
-
-function ctrlSPressed(){
-    
 }

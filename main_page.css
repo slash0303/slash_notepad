@@ -102,13 +102,12 @@ header{
     margin: 5rem 0px;
     padding: 0px 1rem;
     
-    transition: color 0.2s, font-size 0.2s, text-shadow 0.2s;
+    transition: color 0.2s, text-shadow 0.2s;
 }
 
 .first-button:hover{
   color: #8CD75E;
-  font-size: 3.1rem;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
 }
 
 .second-box{
@@ -142,12 +141,12 @@ header{
 
     margin-left: 1rem;
     
-    transition: font-size 0.2s;
+    transition: color 0.2s ;
 
 }
 
 .cate-btn:hover{
-  font-size: 1.8rem;
+  color: #414141;
 }
 
 .note-btn{
@@ -163,11 +162,11 @@ header{
     margin-left: 2rem;
     margin-top: 0.3rem;
     
-    transition: font-size 0.2s;
+    transition: color 0.2s;
 }
 
 .note-btn:hover{
-  font-size: 1.4rem;
+    color: #676767;
 }
 
 .cate-group{
