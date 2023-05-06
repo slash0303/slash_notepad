@@ -1,0 +1,40 @@
+noteStrc = {
+    "recentNotes":{
+        "cateTitl":["Android dev", "Web dev", "English grammar"],
+
+        "noteTitl":{
+            "Android dev":["Android Studio", "Fragment", "layout"],
+            "Web dev":["HTML", "CSS", "JavaScript"],
+            "English grammar":["동사의 형태", "구와 절"]
+        }
+    },
+
+    "chainNotes":{
+        "cateTitl":["Android dev", "Web dev", "English grammar", "Kotiln", "C++", "Java", "오늘 한 일"],
+
+        "noteTitl":{
+            "Android dev":["Android Studio", "Fragment", "layout"],
+            "Web dev":["HTML", "CSS", "JavaScript"],
+            "English grammar":["품사와 문장성분", "동사의 형태", "구와 절"],
+            "Kotiln":["relationship of java", "readability", "relationship of Android"],
+            "C++":["Object oriented programming", "pointer"],
+            "Java":["Class", "Java Virtual Machine", "Spring"],
+            "오늘 한 일":["22.11.10", "22.11.13", "22.11.14"]
+        }
+    },
+
+    "allNotes":{
+        "cateTitl":["Android dev", "Web dev", "English grammar", "Kotiln", "C++", "Java", "오늘 한 일"],
+
+        "noteTitl":{
+            "Android dev":["Android Studio", "Fragment", "layout"],
+            "Web dev":["HTML", "CSS", "JavaScript"],
+            "English grammar":["품사와 문장성분", "동사의 형태", "구와 절"],
+            "Kotiln":["relationship of java", "readability", "relationship of Android"],
+            "C++":["Object oriented programming", "pointer"],
+            "Java":["Class", "Java Virtual Machine", "Spring"],
+            "오늘 한 일":["22.11.10", "22.11.13", "22.11.14"]
+        }
+    }
+
+}

@@ -1,0 +1,75 @@
+render structure
+
+[note_data.json파일]
+
+"chain":{
+	cateTitl:[category1, category2, category3]
+
+	"noteTitl":{
+		category1:
+			[note1-1, note1-2, note1-3]
+		category2:
+			[note2-1, note2-2, note2-3, note2-4]
+		category3:
+			[note3-1, note3-2]
+		...
+	}
+}
+
+"chain":{
+	note 1-1:{
+		word1:note1-3
+		word2:note2-3
+		word3:note1-2
+		...
+	}
+	
+	note 1-2:{
+		word1:note1-3
+		word2:note2-3
+		word3:note1-2
+		...
+	}
+
+	...
+}
+
+
+"all":{
+	cateTitl:[category1, category2, category3]
+
+	"noteTitl":{
+		category1:
+			[note1-1, note1-2, note1-3]
+		category2:
+			[note2-1, note2-2, note2-3, note2-4]
+		category3:
+			[note3-1, note3-2]
+		...
+	}
+}
+
+
+
+[메인페이지 세팅(추가/변경 요소만 작성)]
+
+cateBtnCount = 1;
+
+function addCateBtn(cateBtnCount){
+	let noteCount = main_setting.json에서 해당 카테고리에 포함된 노트의 개수(list의 요소 개수);
+}
+
+function addNoteBtn(cateBtnCount, noteNum){
+	let noteId = cateBtnCount + "-" + noteNum;
+
+	let parCate = document.getElementById("secCate"+cateBtnCount);
+
+	parCate.appendChild(noteBtn);
+}
+
+function rendNote(cateBtnCount){
+	addCateBtn(cateBtnCount);
+	for(let i = 1; i <= noteCount){
+		addNoteBtn(cateBtnCount, i);
+	}
+}

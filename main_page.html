@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main_page.css"/>
+    <link rel="stylesheet" href="font_style.css"/
+    <link rel="shortcut icon" type="image/x-icon" href="resource/icon/noteicon.svg"/>
+    <title>Slash Notepad</title>
+</head>
+<body>
+    <script src="default_script.js"></script>
+    <script src="main_page.js"></script>
+    <header id="header">
+        <button id="titlBtn" class="title-button" onclick="pageTrans(id)">
+                <img class="title-img" src="resource/icon/noteicon.svg"/>
+                <h1 class="title-text">Notepad</h1>
+        </button>
+        <button id="addBtn" class="add-button" onclick="pageTrans(id)">+add</button>
+    </header>
+
+    <main>
+        <div id="firBox" class="first-box">
+            <button id="recCate" onclick="setSecTxt(id)" class="first-button">Recent categories</button>
+            <button id="recNote" onclick="setSecTxt(id)" class="first-button">Recent notes</button>
+            <button id="allNote" onclick="setSecTxt(id)" class="first-button">All notes</button>
+        </div>
+        <div id="secBox" class="second-box">
+            <h1 id="secTitl" class="second-title"></h1>
+            <div class="cate-group">
+                <p><button id="secCate" class="cate-btn" onclick="cateClicked(id)">Android</button></p>
+                <p><button id="secNote126" class="note-btn" onclick="pageTrans(id)">android Studio</button></p>
+            </div>
+            <div class="cate-group">
+                <p><button id="secNote12" class="cate-btn" onclick="cateClicked(id)">Front end</button></p>
+                <p><button id="secNote123" class="note-btn" onclick="pageTrans(id)">HTML</button></p>
+                <p><button id="secNote122" class="note-btn" onclick="pageTrans(id)">CSS</button></p>
+            </div>
+        </div>
+        <div id="prevBox" class="preview-box">
+            <h2 id="prevTitl" class="preview-title"></h3>
+            <h4 id="prevtext" class="preview-text"></h4>
+        </div>
+    </main>
+</body>
+</html>

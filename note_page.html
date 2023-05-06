@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="note_page.css"/>
+    <link rel="stylesheet" href="main_page.css"/>
+    <link rel="stylesheet" href="font_style.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="resource\icon\noteicon.svg"/>
+    <title>Slash Notepad</title>
+</head>
+<body>
+    <script src="default_script.js"></script>
+    <script src="data/note_data.json" type="text/javascript"></script>
+    <script src="note_page.js"></script>
+    <header>
+        <button id="titlBtn" class="title-button" onclick="pageTrans(id)">
+                <img class="title-img" src="resource/icon/noteicon.svg"/>
+                <h1 id="titlTxt" class="title-text">Notepad</h1>
+        </button>
+        <div id="noteTitle" class="note-title"></div>
+        <button id="addBtn" class="add-button" onclick="pageTrans(id)">+add</button>
+    </header>
+    <main>
+        <div id="noteBox" class="sidebox">
+            <div id="recDiv" class="area-box">
+                <button id="boxRecTitl" class="sidebox-title-button">
+                    <h1>Recent notes</h1>
+                </button>
+            </div>
+            <div id="chnDiv" class="area-box">
+                <button id="boxChnTitl" class="sidebox-title-button">
+                    <h1>Chained notes</h1>
+                </button>
+            </div>
+            <div id="noteDiv" class="area-box">
+                <button id="boxNoteTitl" class="sidebox-title-button">
+                    <h1>All notes</h1>
+                </button>
+            </div>
+        </div>
+        <textarea class="note-text" id="text-box" spellcheck="false"></textarea>
+        <div id="toolBox" class="sidebox"></div>
+    </main>
+    <script>
+        setTitle();
+
+        let strcData = JSON.parse(JSON.stringify(noteStrc));
+        noteRender(strcData);
+    </script>
+</body>
+</html>

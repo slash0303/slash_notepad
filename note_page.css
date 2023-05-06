@@ -1,0 +1,158 @@
+main{
+    justify-content: center;
+}
+
+.note-title{
+    font-family: Roboto;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 11px;
+    
+    word-wrap: break-word;
+    -webkit-line-clamp: 1;
+    max-height: 70%;
+    display: inline-block;
+    background: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+
+    transition: font-size 0.2s;
+}
+
+.note-title:hover{
+    font-size: 2.2rem;
+}
+
+.note-text{
+    border: none;
+    outline: none;
+    resize: none;
+
+    padding: 30px 40px;
+
+    height: auto;
+    width: 100%;
+
+    font-family: Noto Sans KR;
+    font-size: 20px;
+    line-height: 35px;
+
+    caret-color: #95d16f;
+
+    transition: font-size 0.2s;
+}
+
+.note-text::-webkit-scrollbar{
+    background: none;
+    width: 10px;
+}
+
+.note-text::-webkit-scrollbar-thumb{
+    background: #a2a2a2;
+    border-radius: 5rem;
+    
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+
+.sidebox::-webkit-scrollbar{
+    background: none;
+    width: 10px;
+}
+
+.sidebox::-webkit-scrollbar-thumb{
+    background: #a2a2a2;
+    border-radius: 5rem;
+    
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+
+.sidebox{
+    background-color: #F3F3F3;
+    width: 30%;
+
+    padding-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.sidebox-title-button{
+    border: none;
+    outline: none;
+    background: none;
+
+    width: 100%;
+    padding-left: 3rem;
+    margin-bottom: 0.7rem;
+
+    font-size: 1rem;
+    text-align: left;
+    font-family: Roboto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+h1{
+    margin: 0px 0px;
+}
+
+.side-cate-area{
+    margin-bottom: 1rem;
+}
+
+.side-cate-btn{
+    border: none;
+    outline: none;
+    background: none;
+
+    width: 100%;
+    padding-left: 5rem;
+    margin-bottom: 0.3rem;
+
+    font-size: 1.4rem;
+    text-align: left;
+    font-family: Roboto;
+    color: #676767;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 500;
+
+    transition: color 0.2s;
+}
+
+.side-note-btn{
+    border: none;
+    outline: none;
+    background: none;
+
+    width: 20rem;
+    padding-left: 6rem;
+    margin-bottom: 0.1rem;
+
+    font-size: 1rem;
+    text-align: left;
+    font-family: Roboto;
+    color: #a2a2a2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 500;
+
+    transition: color 0.2s;
+}
+
+.side-cate-btn:hover{
+    color: #000000;
+}
+
+.side-note-btn:hover{
+    color: #5c5c5c;
+}
+
+.area-box{
+    margin-bottom: 1rem;
+    justify-content: center;
+}
