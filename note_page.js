@@ -69,8 +69,8 @@ function noteRender(strcData){
     
 }
 
-/**noteRender 함수에서 반복되는 구문 묶음 */
-/**cate: 카테고리 데이터, note: 노트 데이터, div: 추가 내용이 배치 될 영역*/
+/**noteRender 함수에서 반복되는 구문 묶음 
+ * cate: 카테고리 데이터, note: 노트 데이터, div: 추가 내용이 배치 될 영역*/
 function noteRenderRep(cate, note, div){
     /**cate버튼 추가 */
     for(x = 0; x < cate.length; x++){
@@ -111,9 +111,10 @@ function noteRenderRep(cate, note, div){
 
 /**노트 기록 함수(임시) */
 function noteSav(){
-    let noteText = document.getElementById("text-box");
+    let noteArea = document.getElementById("text-box");
+    let noteText = noteArea.innerHTML;
 
-    if (noteText.addEventListener){
-        noteText.addEventListener("input", )
-    }
+    const fs = require('fs');
+
+    JSON.parse(JSON.stringify())
 }
