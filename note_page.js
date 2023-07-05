@@ -28,6 +28,13 @@ function writeTxtFile(title, content){
 
 /*note page 왼쪽 note list박스 렌더 */
 function noteRender(strcData){
+
+    // json 불러오기
+    const fileDir = "./data/note_data.json";    // note 데이터가 담긴 json파일
+    fetch(fileDir).then((response)=>{response.json()})
+    .then((data)=>{
+        strcData = data;
+    });
     
     let recDiv = document.getElementById("recDiv");
     let chnDiv = document.getElementById("chnDiv");
@@ -48,7 +55,9 @@ function noteRender(strcData){
                 cateList = recentNotes.cateTitl;
                 noteList = recentNotes.noteTitl;
 
-                noteRenderRep(cateList, noteList, recDiv)
+                noteRenderRep(cateList, noteList, recDiv);
+                
+                break;
             
             /*Chained notes 렌더 */
             case 1:
@@ -56,6 +65,8 @@ function noteRender(strcData){
                 noteList = chainNotes.noteTitl;
 
                 noteRenderRep(cateList, noteList, chnDiv);
+
+                break;
             
             /*All notes 렌더 */
             case 2:
@@ -63,6 +74,8 @@ function noteRender(strcData){
                 noteList = allNotes.noteTitl;
                 
                 noteRenderRep(cateList, noteList, noteDiv);
+
+                break;
                 // TODO 문제상황: 제목이 안나옴;
         }
     }
@@ -120,6 +133,7 @@ function noteSav(){
     fetch(fileDir).then(response=>response.json())      // fetch로 읽은 데이터를 json으로 변환
     .then(data=>{
         items = data.items;
+        // TODO: 저장 기능 구현
 
     })
 }
@@ -129,6 +143,6 @@ function noteChangeDetect(){
     let noteArea = document.getElementById("text-box");
     // 노트 입력 변경사항 감지 event listener
     noteArea.addEventListener("input", ()=>{
-        noteSav();
+        console.log(noteArea.value);
     });
 }
