@@ -12,6 +12,7 @@
 <body>
     <script src="default_script.js"></script>
     <script src="note_page.js"></script>
+    <script type="application/json" src="./data/note_data.json"></script>
     <header>
         <button id="titlBtn" class="title-button" onclick="pageTrans(id)">
                 <img class="title-img" src="resource/icon/noteicon.svg"/>
@@ -45,8 +46,9 @@
         setTitle();
 
         // let strcData = JSON.parse(JSON.stringify(noteStrc));
-        // noteRender(strcData);
+        // noteListRender(strcData);
 
+        noteListRender();
         noteChangeDetect();
     </script>
 </body>

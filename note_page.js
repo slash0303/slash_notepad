@@ -22,70 +22,69 @@ function titleSlice(){
      */
 }
 
-function writeTxtFile(title, content){
-    /*jquery 공부할 것 */
-}
-
 /*note page 왼쪽 note list박스 렌더 */
-function noteRender(strcData){
+function noteListRender(){
+    let strcData;
 
     // json 불러오기
     const fileDir = "./data/note_data.json";    // note 데이터가 담긴 json파일
-    fetch(fileDir).then((response)=>{response.json()})
-    .then((data)=>{
-        strcData = data;
-    });
-    
-    let recDiv = document.getElementById("recDiv");
-    let chnDiv = document.getElementById("chnDiv");
-    let noteDiv = document.getElementById("noteDiv");
+    fetch(fileDir).then((response)=>response.json())
+    .then((strcData)=>{
+        let recDiv = document.getElementById("recDiv");
+        let chnDiv = document.getElementById("chnDiv");
+        let noteDiv = document.getElementById("noteDiv");
 
-    /*note_data.json의 recent, chain, all을 변수에 각각 할당*/
-    let recentNotes = strcData.recentNotes;
-    let chainNotes = strcData.chainNotes;
-    let allNotes = strcData.allNotes;
-    
-    let cateList;
-    let noteList;
+        /*note_data.json의 recent, chain, all을 변수에 각각 할당*/
+        let recentNotes = strcData.recentNotes;
+        let chainNotes = strcData.chainNotes;
+        let allNotes = strcData.allNotes;
 
-    for(i = 0; i < 3; i++){
-        switch(i){
-            /*Recent notes 렌더 */
-            case 0:
-                cateList = recentNotes.cateTitl;
-                noteList = recentNotes.noteTitl;
+        console.log(recentNotes);
+        console.log(chainNotes);
+        console.log(allNotes);
+        
+        let cateList;
+        let noteList;
 
-                noteRenderRep(cateList, noteList, recDiv);
+        for(i = 0; i < 3; i++){
+            switch(i){
+                /*Recent notes 렌더 */
+                case 0:
+                    cateList = recentNotes.cateTitl;
+                    noteList = recentNotes.noteTitl;
+
+                    noteRenderRepeat(cateList, noteList, recDiv);
+                    
+                    break;
                 
-                break;
-            
-            /*Chained notes 렌더 */
-            case 1:
-                cateList = chainNotes.cateTitl;
-                noteList = chainNotes.noteTitl;
+                /*Chained notes 렌더 */
+                case 1:
+                    cateList = chainNotes.cateTitl;
+                    noteList = chainNotes.noteTitl;
 
-                noteRenderRep(cateList, noteList, chnDiv);
+                    noteRenderRepeat(cateList, noteList, chnDiv);
 
-                break;
-            
-            /*All notes 렌더 */
-            case 2:
-                cateList = allNotes.cateTitl;
-                noteList = allNotes.noteTitl;
+                    break;
                 
-                noteRenderRep(cateList, noteList, noteDiv);
+                /*All notes 렌더 */
+                case 2:
+                    cateList = allNotes.cateTitl;
+                    noteList = allNotes.noteTitl;
+                    
+                    noteRenderRepeat(cateList, noteList, noteDiv);
 
-                break;
-                // TODO 문제상황: 제목이 안나옴;
+                    break;
+                    // TODO 문제상황: 제목이 안나옴;
+            }
         }
-    }
-    /*각 카테고리의 하위 노트 가져오기 */
-    
+        /*각 카테고리의 하위 노트 가져오기 */
+    });
+        
 }
 
 /* noteRender 함수에서 반복되는 구문 묶음 
- * cate: 카테고리 데이터, note: 노트 데이터, div: 추가 내용이 배치 될 영역*/
-function noteRenderRep(cate, note, div){
+ * cate: 카테고리 데이터, note: 노트 데이터, div: 추가 내용이 배치 될 영역 */
+function noteRenderRepeat(cate, note, div){
     /*cate버튼 추가 */
     for(x = 0; x < cate.length; x++){
       let cateKey = cate[x];
@@ -132,7 +131,7 @@ function noteSav(){
 
     fetch(fileDir).then(response=>response.json())      // fetch로 읽은 데이터를 json으로 변환
     .then(data=>{
-        items = data.items;
+        data;
         // TODO: 저장 기능 구현
 
     })
