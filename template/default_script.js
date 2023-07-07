@@ -28,6 +28,6 @@ function pageTrans(id){
 
 /**main_page에서 note_page로 title text 전달 함수 (localStorage에 title text 저장) */
 function sendTitle(id){
-  let noteTitle = document.getElementById(id).innerHTML;
-  localStorage.setItem("noteTitle", noteTitle);
+    let noteTitle = document.getElementById(id).innerHTML;
+    localStorage.setItem("noteTitle", noteTitle);
 }

@@ -22,7 +22,7 @@ function titleSlice(){
      */
 }
 
-/*note page 왼쪽 note list박스 렌더 */
+/* note page 왼쪽 note list박스 렌더 */
 function noteListRender(){
     let strcData;
 
@@ -48,7 +48,7 @@ function noteListRender(){
 
         for(i = 0; i < 3; i++){
             switch(i){
-                /*Recent notes 렌더 */
+                /* Recent notes 렌더 */
                 case 0:
                     cateList = recentNotes.cateTitl;
                     noteList = recentNotes.noteTitl;
@@ -57,7 +57,7 @@ function noteListRender(){
                     
                     break;
                 
-                /*Chained notes 렌더 */
+                /* Chained notes 렌더 */
                 case 1:
                     cateList = chainNotes.cateTitl;
                     noteList = chainNotes.noteTitl;
@@ -66,7 +66,7 @@ function noteListRender(){
 
                     break;
                 
-                /*All notes 렌더 */
+                /* All notes 렌더 */
                 case 2:
                     cateList = allNotes.cateTitl;
                     noteList = allNotes.noteTitl;
@@ -77,7 +77,7 @@ function noteListRender(){
                     // TODO 문제상황: 제목이 안나옴;
             }
         }
-        /*각 카테고리의 하위 노트 가져오기 */
+        /* 각 카테고리의 하위 노트 가져오기 */
     });
         
 }
@@ -85,7 +85,7 @@ function noteListRender(){
 /* noteRender 함수에서 반복되는 구문 묶음 
  * cate: 카테고리 데이터, note: 노트 데이터, div: 추가 내용이 배치 될 영역 */
 function noteRenderRepeat(cate, note, div){
-    /*cate버튼 추가 */
+    /* cate버튼 추가 */
     for(x = 0; x < cate.length; x++){
       let cateKey = cate[x];
       let noteArr = note[cateKey];
@@ -94,18 +94,18 @@ function noteRenderRepeat(cate, note, div){
       let cateTxt = document.createTextNode(cateKey);
       let cateDiv = document.createElement("div");
 
-      /*cateDiv 속성 설정 */
+      /* cateDiv 속성 설정 */
       cateDiv.setAttribute("id", cateKey + "-div-" + x);
       cateDiv.setAttribute("class", "side-cate-area");
-      /*cateBtn 속성 설정 */
+      /* cateBtn 속성 설정 */
       cateBtn.setAttribute("id", cateKey + x);
       cateBtn.setAttribute("class", "side-cate-btn");
       cateBtn.appendChild(cateTxt);
-      /*요소 추가 */
+      /* 요소 추가 */
       div.appendChild(cateDiv);
       cateDiv.appendChild(cateBtn);
 
-      /*note버튼 (cate의 하위요소) 추가 */
+      /* note버튼 (cate의 하위요소) 추가 */
       for (y = 0; y < noteArr.length; y++){
           let noteName = noteArr[y];
           
@@ -116,25 +116,35 @@ function noteRenderRepeat(cate, note, div){
           noteBtn.setAttribute("id", noteId);
           noteBtn.setAttribute("class", "side-note-btn");
           noteBtn.appendChild(noteTxt);
-          /**요소 추가 */
+          /* 요소 추가 */
           cateDiv.appendChild(noteBtn);
       }
   }
 }
 
-/*노트 기록 함수(임시) */
+/*노트 저장 함수 */
 function noteSav(){
     let noteArea = document.getElementById("text-box");
-    let noteText = noteArea.innerHTML;
+    let noteText = noteArea.value;
 
-    const fileDir = "./data/note_text.json";
+    let titleText = localStorage.getItem("noteTitle");
 
-    fetch(fileDir).then(response=>response.json())      // fetch로 읽은 데이터를 json으로 변환
-    .then(data=>{
-        data;
-        // TODO: 저장 기능 구현
+    let textObj = {
+        "noteName": titleText,
+        "note": noteText}
 
-    })
+    console.log(textObj);
+
+    let data = {
+        method:"POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(textObj)
+    };
+
+    fetch("./data/notes", data).then((res)=>res.text())
+    .then(console.log)
 }
 
 /*노트 변경 감지 함수*/
@@ -142,6 +152,6 @@ function noteChangeDetect(){
     let noteArea = document.getElementById("text-box");
     // 노트 입력 변경사항 감지 event listener
     noteArea.addEventListener("input", ()=>{
-        console.log(noteArea.value);
+        noteSav();
     });
 }
