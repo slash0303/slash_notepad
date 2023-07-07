@@ -1,24 +1,24 @@
 /**html 페이지 간 이동 함수 */
 function pageTrans(id){
 
-  let location = ".html";
+  let location;
   
   /**header의 버튼에서 넘어갈 때 */
   if(id == "addBtn"){
-    location = "note_page" + location;
+    location = "note_page"
   }
   else if(id == "titlBtn"){
-    location = "main_page" + location;
+    location = "/"
   }
   /**main_page의 secBox에서 넘어갈 때 */
   else if(id.slice(0, 7) == "secNote"){
-    location = "note_page" + location;
+    location = "note_page"
 
     sendTitle(id);
   }
   /**note_page의 noteBox에서 넘어갈 때 */
   else if(id.slice(0, 4) == "note"){
-    location = "note_page" + location;
+    location = "note_page"
 
     sendTitle(id);
   }

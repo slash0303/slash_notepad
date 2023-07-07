@@ -27,7 +27,7 @@ function noteListRender(){
     let strcData;
 
     // json 불러오기
-    const fileDir = "./data/note_data.json";    // note 데이터가 담긴 json파일
+    const fileDir = "../data/note_data.json";    // note 데이터가 담긴 json파일
     fetch(fileDir).then((response)=>response.json())
     .then((strcData)=>{
         let recDiv = document.getElementById("recDiv");
@@ -38,10 +38,6 @@ function noteListRender(){
         let recentNotes = strcData.recentNotes;
         let chainNotes = strcData.chainNotes;
         let allNotes = strcData.allNotes;
-
-        console.log(recentNotes);
-        console.log(chainNotes);
-        console.log(allNotes);
         
         let cateList;
         let noteList;
@@ -129,11 +125,13 @@ function noteSav(){
 
     let titleText = localStorage.getItem("noteTitle");
 
-    let textObj = {
-        "noteName": titleText,
-        "note": noteText}
+    let noteTexts = fetch("../data/note_text.json").then(response=>response.json());
 
-    console.log(textObj);
+    let textObj = {
+        "note": noteText
+    }
+
+    noteTexts[titleText] = textObj;
 
     let data = {
         method:"POST",
@@ -143,7 +141,7 @@ function noteSav(){
         body: JSON.stringify(textObj)
     };
 
-    fetch("./data/notes", data).then((res)=>res.text())
+    fetch("../data/notes", data).then((res)=>res.text())
     .then(console.log)
 }
 
