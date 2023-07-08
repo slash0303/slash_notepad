@@ -24,9 +24,10 @@ function noteListRender(){
         let noteDiv = document.getElementById("noteDiv");
 
         /*note_data.json의 recent, chain, all을 변수에 각각 할당*/
-        let recentNotes = strcData.recentNotes;
-        let chainNotes = strcData.chainNotes;
+        let recentNotes = strcData.recNotes;
+        let chainNotes = strcData.chnNotes;
         let allNotes = strcData.allNotes;
+        let noteData = strcData.notes;
         
         let cateList;
         let noteList;
@@ -36,7 +37,7 @@ function noteListRender(){
                 /* Recent notes 렌더 */
                 case 0:
                     cateList = recentNotes.cateTitl;
-                    noteList = recentNotes.noteTitl;
+                    noteList = noteData;
 
                     noteRenderRepeat(cateList, noteList, recDiv);
                     
@@ -45,7 +46,7 @@ function noteListRender(){
                 /* Chained notes 렌더 */
                 case 1:
                     cateList = chainNotes.cateTitl;
-                    noteList = chainNotes.noteTitl;
+                    noteList = noteData;
 
                     noteRenderRepeat(cateList, noteList, chnDiv);
 
@@ -54,14 +55,13 @@ function noteListRender(){
                 /* All notes 렌더 */
                 case 2:
                     cateList = allNotes.cateTitl;
-                    noteList = allNotes.noteTitl;
+                    noteList = noteData;
                     
                     noteRenderRepeat(cateList, noteList, noteDiv);
 
                     break;
             }
         }
-        /* 각 카테고리의 하위 노트 가져오기 */
     });
         
 }
@@ -70,7 +70,7 @@ function noteListRender(){
  * cate: 카테고리 데이터, note: 노트 데이터, div: 추가 내용이 배치 될 영역 */
 function noteRenderRepeat(cate, note, div){
     /* cate버튼 추가 */
-    for(x = 0; x < cate.length; x++){
+    for(x=0; x < cate.length; x++){
       let cateKey = cate[x];
       let noteArr = note[cateKey];
 

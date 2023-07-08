@@ -13,12 +13,74 @@ function setSecBox(id){
     let secTitl = document.getElementById("secTitl");
     let setText = pressedBtn.innerText;
 
-    // 두 번째 박스 컨텐츠 설정
     secTitl.innerText = setText;
-    
-    
 
+    // 두 번째 박스 컨텐츠 설정
+    setSecCont(id);
+    
+    // firBox의 텍스트 색상 변경
     setFirTxtColor(id);
+}
+
+/** secBox에 컨텐츠 설정 */
+function setSecCont(id){
+    id += "s"   // id json key에 맞게 변환
+    
+    // secCont 삭제 및 새로 생성
+    let secBoxDiv = document.getElementById("secBox");
+    let prevContDiv = document.getElementById("secCont");
+    console.log(prevContDiv);
+    prevContDiv.remove();
+    let contDiv = document.createElement("div");
+    contDiv.setAttribute("id", "secCont");
+    
+    const fileDir = "../static/data/note_data.json";    // note 데이터가 담긴 json파일
+    fetch(fileDir).then((response)=>response.json())
+    .then((strcData)=>{
+
+        let cateData = strcData[id].cateTitl;
+        let noteData = strcData.notes;
+        // cateBtn 추가
+        for(x = 0; x < cateData.length; x++){
+            let cateKey = cateData[x];
+            let cateDiv = document.createElement("div");
+            let cateP = document.createElement("p");
+            let cateBtn = document.createElement("button");
+            let cateTxt = document.createTextNode(cateKey);
+
+            // cateDiv 속성 설정
+            cateDiv.setAttribute("id", cateKey + "-div-" + x);
+            cateDiv.setAttribute("class", "cate-group");
+            // cateBtn 속성 설정
+            cateBtn.setAttribute("id", "secCate" + "-" + x);
+            cateBtn.setAttribute("class", "cate-btn");
+            cateBtn.appendChild(cateTxt);
+            // 자식요소 설정
+            cateP.appendChild(cateBtn);
+            cateDiv.appendChild(cateP);
+            contDiv.appendChild(cateDiv);
+            
+            // noteBtn 추가
+            let noteArr = noteData[cateKey]
+            for(y = 0; y < noteArr.length; y++){
+                console.log(noteArr);
+                let noteP = document.createElement("p");
+                let noteBtn = document.createElement("button");
+                let noteTxt = document.createTextNode(noteArr[y]);
+                
+                // noteBtn 속성 설정
+                noteBtn.setAttribute("id", noteData[cateKey][y] + x + "-" + y);
+                noteBtn.setAttribute("class", "note-btn");
+                noteBtn.appendChild(noteTxt);
+                // 자식요소 설정
+                noteP.appendChild(noteBtn);
+                cateDiv.appendChild(noteP);
+            }
+
+            // secBox에 최종 결과물 삽입
+            secBoxDiv.appendChild(contDiv);
+        }
+    })
 }
 
 /** cate btn 클릭 시 색상 변경*/
@@ -79,6 +141,8 @@ function cateClicked(id){
     befCate.style.color = "#676767";
     cateBtn.style.color = "#95d16f";
 }
+
+
 
     /** 박스 확장 애니메이션(3.4s), 컨텐츠 수정 
      * https://jongdai.tistory.com/54 - 애니메이션
