@@ -1,15 +1,22 @@
 let widSetCount = true;
 
 /** 처음 박스 클릭 시  */
-function setSecTxt(id){
+function setSecBox(id){
     console.log(id + "클릭 됨");
     
+    // 두 번째 박스 너비 변경
+    let secBox = document.getElementById("secBox");
+    secBox.style.width = "25%";
+
+    // 두 번째 박스 제목 설정
     let pressedBtn  = document.getElementById(id);
     let secTitl = document.getElementById("secTitl");
-    
     let setText = pressedBtn.innerText;
 
+    // 두 번째 박스 컨텐츠 설정
     secTitl.innerText = setText;
+    
+    
 
     setFirTxtColor(id);
 }

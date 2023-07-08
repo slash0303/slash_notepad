@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/main_page.css"/>
-    <link rel="shortcut icon" type="image/x-icon" href="../resource/icon/noteicon.svg"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../static/resource/icon/noteicon.svg"/>
     <title>Slash Notepad</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <script src="../static/main_page.js"></script>
     <header id="header">
         <button id="titlBtn" class="title-button" onclick="pageTrans(id)">
-                <img class="title-img" src="../resource/icon/noteicon.svg"/>
+                <img class="title-img" src="../static/resource/icon/noteicon.svg"/>
                 <h1 class="title-text">Notepad</h1>
         </button>
         <button id="addBtn" class="add-button" onclick="pageTrans(id)">+add</button>
@@ -21,9 +21,9 @@
 
     <main>
         <div id="firBox" class="first-box">
-            <button id="recCate" onclick="setSecTxt(id)" class="first-button">Recent categories</button>
-            <button id="recNote" onclick="setSecTxt(id)" class="first-button">Recent notes</button>
-            <button id="allNote" onclick="setSecTxt(id)" class="first-button">All notes</button>
+            <button id="recCate" onclick="setSecBox(id)" class="first-button">Recent categories</button>
+            <button id="recNote" onclick="setSecBox(id)" class="first-button">Recent notes</button>
+            <button id="allNote" onclick="setSecBox(id)" class="first-button">All notes</button>
         </div>
         <div id="secBox" class="second-box">
             <h1 id="secTitl" class="second-title"></h1>

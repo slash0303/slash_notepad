@@ -1,6 +1,5 @@
 /* 참고 링크 
  * https://choar816.tistory.com/156
- * 
  */
 
 /* note page 상단 title 세팅 */
@@ -12,22 +11,12 @@ function setTitle(){
     console.log(titleData);
 }
 
-function titleSlice(){
-    let noteTitle = document.getElementById("noteTitle");
-    let headerWid = document.getElementById("header");
-    let TitlBtnWid = document.getElementById("titlBtn").offsetWidth;
-    let addBtnWid = document.getElementById("addBtn").offsetWidth;
-    /*
-     * width 받아서 header - (titlebtn + addbtn) = title
-     */
-}
-
 /* note page 왼쪽 note list박스 렌더 */
 function noteListRender(){
     let strcData;
 
     // json 불러오기
-    const fileDir = "../data/note_data.json";    // note 데이터가 담긴 json파일
+    const fileDir = "../static/data/note_data.json";    // note 데이터가 담긴 json파일
     fetch(fileDir).then((response)=>response.json())
     .then((strcData)=>{
         let recDiv = document.getElementById("recDiv");
@@ -70,7 +59,6 @@ function noteListRender(){
                     noteRenderRepeat(cateList, noteList, noteDiv);
 
                     break;
-                    // TODO 문제상황: 제목이 안나옴;
             }
         }
         /* 각 카테고리의 하위 노트 가져오기 */
@@ -105,7 +93,7 @@ function noteRenderRepeat(cate, note, div){
       for (y = 0; y < noteArr.length; y++){
           let noteName = noteArr[y];
           
-          /*noteBtn 속성 설정 */
+          /* noteBtn 속성 설정 */
           let noteBtn = document.createElement("button");
           let noteTxt = document.createTextNode(noteName);
           let noteId = noteName + x + "-" + y
@@ -125,11 +113,11 @@ function noteSav(){
 
     let titleText = localStorage.getItem("noteTitle");
 
-    let noteTexts = fetch("../data/note_text.json").then(response=>response.json());
+    let noteTexts = fetch("../static/data/note_text.json").then(response=>response.json());
 
     let textObj = {
         "note": noteText
-    }
+    };
 
     noteTexts[titleText] = textObj;
 
@@ -141,8 +129,8 @@ function noteSav(){
         body: JSON.stringify(textObj)
     };
 
-    fetch("../data/notes", data).then((res)=>res.text())
-    .then(console.log)
+    fetch("../static/data/notes", data).then((res)=>res.text())
+    .then(console.log);
 }
 
 /*노트 변경 감지 함수*/
