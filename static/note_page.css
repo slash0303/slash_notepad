@@ -29,7 +29,7 @@ main{
     outline: none;
     resize: none;
 
-    padding: 30px 40px;
+    padding: 50px 70px;
 
     height: auto;
     width: 100%;
@@ -130,7 +130,7 @@ h1{
     outline: none;
     background: none;
 
-    width: 20rem;
+    width: 18rem;
     padding-left: 5rem;
     margin-bottom: 0.1rem;
 

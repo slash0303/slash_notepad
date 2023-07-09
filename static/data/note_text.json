@@ -1,8 +1,16 @@
 {
-    "Android dev":{
-        "Android Studio":{
-            "noteText": "이것은 This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note This is test note",
-            "chain":{}
+    "Android dev": {
+        "Android Studio": {
+            "noteText": "이야 ㅋㅋ 이게 노트 앱이지 ㅋㅋㅋㅋㅋ",
+            "chain": {}
+        },
+        "Fragment": {
+            "noteText": "와 미쳤다 이게 되네",
+            "chain": {}
+        },
+        "layout": {
+            "noteText": "ㄹㅇㅋㅋ",
+            "chain": {}
         }
     }
 }

@@ -1,5 +1,3 @@
-const { createElement } = require("react/cjs/react.production.min");
-
 let widSetCount = true;
 
 /** 처음 박스 클릭 시  */

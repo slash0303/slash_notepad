@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from eaxtension import jsonE
 
 app = Flask(__name__)
 
@@ -6,9 +7,16 @@ app = Flask(__name__)
 def main_page():
     return render_template("main_page.html")
 
-@app.route("/note_page", methods=["GET", "POST"])
+@app.route("/note_page", methods=["GET"])
 def note_page():
     return render_template("note_page.html")
+
+@app.route("/note_page", methods=["POST"])
+def note_sav():
+    received_note = request.get_json()
+    jsonE.dumps("./static/data/note_text.json", received_note)
+    return ""
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")

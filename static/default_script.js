@@ -3,22 +3,25 @@ function pageTrans(id){
 
   let location;
   
+  let idArr = id.split("-");
+
   /**header의 버튼에서 넘어갈 때 */
-  if(id == "addBtn"){
-    location = "note_page"
+  if(idArr[0] == "addBtn"){
+    location = "note_page";
   }
-  else if(id == "titlBtn"){
-    location = "/"
+  else if(idArr[0] == "titlBtn"){
+    location = "/";
   }
   /**main_page의 secBox에서 넘어갈 때 */
-  else if(id.slice(0, 7) == "secNote"){
-    location = "note_page"
+  else if(idArr[0] == "secNote"){
+    location = "note_page" + "?" + `cate=${idArr[1]}&note=${idArr[2]}`;
 
     sendTitle(id);
   }
   /**note_page의 noteBox에서 넘어갈 때 */
-  else if(id.slice(0, 4) == "note"){
-    location = "note_page"
+  else if(idArr[0] == "notePage"){
+    let idArr = id.split("-");
+    location = "note_page" + "?" + `cate=${idArr[1]}&note=${idArr[2]}`;
 
     sendTitle(id);
   }

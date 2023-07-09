@@ -39,12 +39,16 @@
                 </button>
             </div>
         </div>
-        <textarea class="note-text" id="text-box" spellcheck="false"></textarea>
-        <div id="toolBox" class="sidebox"></div>
+        <textarea class="note-text" id="textBox" spellcheck="false"></textarea>
+        <div id="toolBox" class="sidebox">
+            <div id="itemsRow" style="display: flex;">
+            
+            </div>
+        </div>
     </main>
     <script>
         setTitle();
-        noteListRender();
+        Render();
         noteChangeDetect();
     </script>
 </body>

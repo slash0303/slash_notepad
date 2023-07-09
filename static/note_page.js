@@ -8,12 +8,10 @@ function setTitle(){
     let titleData = localStorage.getItem("noteTitle");
 
     noteTitle.innerHTML = titleData;
-    console.log(titleData);
 }
 
 /* note page 왼쪽 note list박스 렌더 */
-function noteListRender(){
-    let strcData;
+function Render(){
 
     // json 불러오기
     const fileDir = "../static/data/note_data.json";    // note 데이터가 담긴 json파일
@@ -39,7 +37,7 @@ function noteListRender(){
                     cateList = recentNotes.cateTitl;
                     noteList = noteData;
 
-                    noteRenderRepeat(cateList, noteList, recDiv);
+                    noteBoxSetCont(cateList, noteList, recDiv);
                     
                     break;
                 
@@ -48,7 +46,7 @@ function noteListRender(){
                     cateList = chainNotes.cateTitl;
                     noteList = noteData;
 
-                    noteRenderRepeat(cateList, noteList, chnDiv);
+                    noteBoxSetCont(cateList, noteList, chnDiv);
 
                     break;
                 
@@ -57,18 +55,19 @@ function noteListRender(){
                     cateList = allNotes.cateTitl;
                     noteList = noteData;
                     
-                    noteRenderRepeat(cateList, noteList, noteDiv);
+                    noteBoxSetCont(cateList, noteList, noteDiv);
 
                     break;
             }
         }
     });
+    noteMainContSet();
         
 }
 
 /* noteRender 함수에서 반복되는 구문 묶음 
  * cate: 카테고리 데이터, note: 노트 데이터, div: 추가 내용이 배치 될 영역 */
-function noteRenderRepeat(cate, note, div){
+function noteBoxSetCont(cate, note, div){
     /* cate버튼 추가 */
     for(x=0; x < cate.length; x++){
       let cateKey = cate[x];
@@ -92,13 +91,14 @@ function noteRenderRepeat(cate, note, div){
       /* note버튼 (cate의 하위요소) 추가 */
       for (y = 0; y < noteArr.length; y++){
           let noteName = noteArr[y];
-          
+
           /* noteBtn 속성 설정 */
           let noteBtn = document.createElement("button");
           let noteTxt = document.createTextNode(noteName);
-          let noteId = noteName + x + "-" + y
+          let noteId = `notePage-${cateKey}-${noteName}-${x}-${y}`
           noteBtn.setAttribute("id", noteId);
           noteBtn.setAttribute("class", "side-note-btn");
+          noteBtn.setAttribute("onclick", "pageTrans(id)");
           noteBtn.appendChild(noteTxt);
           /* 요소 추가 */
           cateDiv.appendChild(noteBtn);
@@ -108,36 +108,59 @@ function noteRenderRepeat(cate, note, div){
 
 /*노트 저장 함수 */
 function noteSav(){
-    let noteArea = document.getElementById("text-box");
+    // textArea 값 읽어들임
+    let noteArea = document.getElementById("textBox");
     let noteText = noteArea.value;
+    // URL 파라미터 중 cate, note 읽어들임 
+    let URLParams = new URL(location.href).searchParams;
+    let cate = URLParams.get("cate");
+    let note = URLParams.get("note");
 
-    let titleText = localStorage.getItem("noteTitle");
+    // note_text.json 불러옴
+    fetch("../static/data/note_text.json").then(response=>response.json())
+    .then(noteTexts=>{
+        // 메모 json 객체
+        let textObj = {
+            "noteText": noteText,
+            "chain":{}
+        };
 
-    let noteTexts = fetch("../static/data/note_text.json").then(response=>response.json());
+        // 노트 텍스트 원본 객체에 수정사항을 반영한 노트 덮어쓰기
+        console.log(noteTexts);
+        noteTexts[cate][note] = textObj;
 
-    let textObj = {
-        "note": noteText
-    };
-
-    noteTexts[titleText] = textObj;
-
-    let data = {
-        method:"POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(textObj)
-    };
-
-    fetch("../static/data/notes", data).then((res)=>res.text())
-    .then(console.log);
+        let data = {
+            method:"POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(noteTexts)
+        };
+        let APIAddress = location.href.split("?")[0];
+        fetch(APIAddress, data).then((res)=>res.text());
+    });
 }
 
-/*노트 변경 감지 함수*/
+/** 노트 변경 감지 함수*/
 function noteChangeDetect(){
-    let noteArea = document.getElementById("text-box");
+    let noteArea = document.getElementById("textBox");
     // 노트 입력 변경사항 감지 event listener
     noteArea.addEventListener("input", ()=>{
         noteSav();
     });
+}
+
+/** textarea 채워넣는 함수 */
+function noteMainContSet(){
+    let noteArea = document.getElementById("textBox");
+    let URLParams = new URL(location.href).searchParams;
+    let cate = URLParams.get("cate");
+    let note = URLParams.get("note");
+    
+    let fileDir = "../static/data/note_text.json";
+    fetch(fileDir).then(response=>response.json())
+    .then(noteData=>{
+        let noteText = noteData[cate][note]["noteText"];
+        noteArea.value = noteText;
+    })
 }
