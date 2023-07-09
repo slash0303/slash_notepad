@@ -98,7 +98,7 @@ class jsonE:
 		except KeyError:
 			LogE.g("load json", f"'{file_name}' is loaded")
 
-		with open(file_name, "r") as json_file:
+		with open(file_name, "r", encoding="utf-8") as json_file:
 			content = json.load(json_file)
 			return content
 

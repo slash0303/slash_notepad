@@ -10,9 +10,8 @@ function setTitle(){
     noteTitle.innerHTML = titleData;
 }
 
-/* note page 왼쪽 note list박스 렌더 */
+/* note page 렌더 */
 function Render(){
-
     // json 불러오기
     const fileDir = "../static/data/note_data.json";    // note 데이터가 담긴 json파일
     fetch(fileDir).then((response)=>response.json())
@@ -62,7 +61,8 @@ function Render(){
         }
     });
     noteMainContSet();
-        
+    // title 설정
+    document.title = document.getElementById("noteTitle").innerHTML + " - Slash Notepad";
 }
 
 /* noteRender 함수에서 반복되는 구문 묶음 
@@ -121,13 +121,14 @@ function noteSav(){
     .then(noteTexts=>{
         // 메모 json 객체
         let textObj = {
-            "noteText": noteText,
-            "chain":{}
+            note:{
+                "noteText": noteText,
+                "chain":{}
+            }
         };
 
         // 노트 텍스트 원본 객체에 수정사항을 반영한 노트 덮어쓰기
-        console.log(noteTexts);
-        noteTexts[cate][note] = textObj;
+        noteTexts[cate] = textObj;
 
         let data = {
             method:"POST",

@@ -13,8 +13,10 @@ def note_page():
 
 @app.route("/note_page", methods=["POST"])
 def note_sav():
+    # POST로 받아온 json 데이터
     received_note = request.get_json()
-    jsonE.dumps("./static/data/note_text.json", received_note)
+    
+    jsonE.dumps("./static/data/note_text.json", received_note, silent=True)
     return ""
 
 

@@ -1,15 +1,19 @@
 {
     "Android dev": {
-        "Android Studio": {
-            "noteText": "이야 ㅋㅋ 이게 노트 앱이지 ㅋㅋㅋㅋㅋ",
+        "note": {
+            "noteText": "ㅁㅇㄻㄴㅇㄻㄴㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㅁㄴㅇㄻㄴㅇㄹㄹㅇ",
             "chain": {}
-        },
-        "Fragment": {
-            "noteText": "와 미쳤다 이게 되네",
+        }
+    },
+    "English grammar": {
+        "note": {
+            "noteText": "ㄹㅇㄹㅇㄹㅇㄹㅇㅁㄴㅇㄻㅇ",
             "chain": {}
-        },
-        "layout": {
-            "noteText": "ㄹㅇㅋㅋ",
+        }
+    },
+    "Web dev": {
+        "note": {
+            "noteText": "ㅁㅇㄻㄴㅇㄻㅇㄻㅇㄻㄴㅇ",
             "chain": {}
         }
     }
