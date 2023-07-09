@@ -1,3 +1,5 @@
+const { createElement } = require("react/cjs/react.production.min");
+
 let widSetCount = true;
 
 /** 처음 박스 클릭 시  */
@@ -25,7 +27,7 @@ function setSecBox(id){
 /** secBox에 컨텐츠 설정 */
 function setSecCont(id){
     id += "s"   // id json key에 맞게 변환
-    
+
     // secCont 삭제 및 새로 생성
     let secBoxDiv = document.getElementById("secBox");
     let prevContDiv = document.getElementById("secCont");
@@ -69,9 +71,18 @@ function setSecCont(id){
                 let noteTxt = document.createTextNode(noteArr[y]);
                 
                 // noteBtn 속성 설정
-                noteBtn.setAttribute("id", noteData[cateKey][y] + x + "-" + y);
+                let noteIdForm = `secNote-${cateKey}-${noteData[cateKey][y]}-${x}-${y}`;
+                noteBtn.setAttribute("id", noteIdForm);
                 noteBtn.setAttribute("class", "note-btn");
+                noteBtn.setAttribute("onclick", "pageTrans(id)");
                 noteBtn.appendChild(noteTxt);
+                noteBtn.addEventListener("mouseover", ()=>{prevBoxCont(noteIdForm)});
+                noteBtn.addEventListener("mouseleave", ()=>{
+                    let prevTitl = document.getElementById("prevTitl");
+                    prevTitl.remove();
+                    let prevText = document.getElementById("prevText");
+                    prevText.remove();
+                })
                 // 자식요소 설정
                 noteP.appendChild(noteBtn);
                 cateDiv.appendChild(noteP);
@@ -80,10 +91,40 @@ function setSecCont(id){
             // secBox에 최종 결과물 삽입
             secBoxDiv.appendChild(contDiv);
         }
-    })
+    });
 }
 
-/** cate btn 클릭 시 색상 변경*/
+/** prevBox에 컨텐츠 설정 */
+function prevBoxCont(id){
+    // id 슬라이싱
+    let idArr = id.split("-");  // 0: secNote, 1: 노트 카테고리, 2: 노트명, 3, 4: x번째 카테고리 y번째 노트
+    const fileDir = "../static/data/note_text.json";
+    fetch(fileDir).then(response=>response.json())
+    .then(data=>{
+        let cateName = idArr[1];
+        let noteName = idArr[2];
+        let noteData = data[cateName][noteName]["noteText"];
+        let noteDataNode = document.createTextNode(noteData);
+        let TitlDataNode = document.createTextNode(noteName);
+        // prevText 속성 설정
+        let noteText = document.createElement("div");
+        noteText.setAttribute("id", "prevText");
+        noteText.setAttribute("class", "preview-text");
+        noteText.appendChild(noteDataNode);
+        // prevTitl 속성 설정
+        let prevTitl = document.createElement("div");
+        prevTitl.setAttribute("id", "prevTitl");
+        prevTitl.setAttribute("class", "preview-title");
+        prevTitl.appendChild(TitlDataNode);
+
+        // prevBox에 최종 결과물 삽입
+        let prevBox = document.getElementById("prevBox");
+        prevBox.appendChild(prevTitl);
+        prevBox.appendChild(noteText);
+    });
+}
+
+/** cateBtn 클릭 시 색상 변경*/
 function setFirTxtColor(id){
 
     let recCate = document.getElementById("recCate");

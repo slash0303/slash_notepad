@@ -189,8 +189,19 @@ header{
     -moz-user-select:text;
     -ms-user-select:text;
     user-select:text;
+
+    overflow: auto;
 }
 
 .preview-text{
-    font-weight: normal;
+    font-weight: 500;
+    font-family: NotoSansKR;
+    font-size: 1.2rem;
+}
+
+.preview-title{
+    font-weight: bold;
+    font-family: NotoSansKR;
+    font-size: 1.9rem;
+    margin: 10px 0px 15px 0px;
 }
