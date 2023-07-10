@@ -1,28 +1,75 @@
 {
-    "recNotes":{
-        "cateTitl":["Android dev", "Web dev", "English grammar"]
+    "recNotes": {
+        "cateTitl": [
+            "우우우ㅜ",
+            "Android dev",
+            "English grammar"
+        ]
     },
-
-    "chnNotes":{
-        "cateTitl":["Android dev", "Web dev", "English grammar", "Kotiln", "C++", "Java", "오늘 한 일"]
+    "chnNotes": {
+        "cateTitl": [
+            "Android dev",
+            "Web dev",
+            "English grammar",
+            "Kotiln",
+            "C++",
+            "Java",
+            "오늘 한 일"
+        ]
     },
-
-    "allNotes":{
-        "cateTitl":["Android dev", "Web dev", "English grammar", "Kotiln", "C++", "Java", "오늘 한 일"]
+    "allNotes": {
+        "cateTitl": [
+            "Android dev",
+            "Web dev",
+            "English grammar",
+            "Kotiln",
+            "C++",
+            "Java",
+            "오늘 한 일"
+        ]
     },
-
-    "recCates":{
-        "cateTitl":["Android dev"]
+    "recCates": {
+        "cateTitl": [
+            "Android dev"
+        ]
     },
-
-    "notes":{
-        "Android dev":["Android Studio", "Fragment", "layout"],
-        "Web dev":["HTML", "CSS", "JavaScript"],
-        "English grammar":["품사와 문장성분", "동사의 형태", "구와 절"],
-        "Kotiln":["relationship of java", "readability", "relationship of Android"],
-        "C++":["Object oriented programming", "pointer"],
-        "Java":["Class", "Java Virtual Machine", "Spring"],
-        "오늘 한 일":["22.11.10", "22.11.13", "22.11.14"]
+    "notes": {
+        "Android dev": [
+            "Android Studio",
+            "Fragment",
+            "layout"
+        ],
+        "Web dev": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "English grammar": [
+            "품사와 문장성분",
+            "동사의 형태",
+            "구와 절"
+        ],
+        "Kotiln": [
+            "relationship of java",
+            "readability",
+            "relationship of Android"
+        ],
+        "C++": [
+            "Object oriented programming",
+            "pointer"
+        ],
+        "Java": [
+            "Class",
+            "Java Virtual Machine",
+            "Spring"
+        ],
+        "오늘 한 일": [
+            "22.11.10",
+            "22.11.13",
+            "22.11.14"
+        ],
+        "asap": [
+            "우우우ㅜ"
+        ]
     }
-
 }

@@ -7,7 +7,7 @@ function pageTrans(id){
 
   /**header의 버튼에서 넘어갈 때 */
   if(idArr[0] == "addBtn"){
-    location = "note_page";
+    location = "add_page";
   }
   else if(idArr[0] == "titlBtn"){
     location = "/";
@@ -25,6 +25,12 @@ function pageTrans(id){
 
     sendTitle(id);
   }
+  // add_page의 commit 버튼을 눌렀을 때
+  else if(idArr[0]=="commitBtn"){
+    let nameArr = addSendTitle();
+    location = "note_page" + "?" + `cate=${nameArr[0]}&note=${nameArr[1]}`;
+
+  }
   
   document.location.href = location;
 }
@@ -33,4 +39,29 @@ function pageTrans(id){
 function sendTitle(id){
     let noteTitle = document.getElementById(id).innerHTML;
     localStorage.setItem("noteTitle", noteTitle);
+}
+
+/** add_page에서 note_page로 title text 전달 및 백엔드에 POST요청 */
+function addSendTitle(){
+  let cateName = document.getElementById("cateName").value;
+  let noteName = document.getElementById("noteName").value;
+  localStorage.setItem("noteTitle", noteName);
+
+  let postObj = {
+    "cate": cateName,
+    "note": noteName
+  }
+
+  let data = {
+    method:"POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(postObj)
+  }
+
+  const APIAddress = location.href;
+  fetch(APIAddress, postObj);
+
+  return [cateName, noteName];
 }

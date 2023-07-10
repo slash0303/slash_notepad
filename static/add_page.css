@@ -1,0 +1,65 @@
+html, body{
+    width: 100%;
+    height: 100%;
+
+    margin: 0px
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.add-title{
+    font-size: 60px;
+    font-weight: bold;
+    font-family: Roboto;
+    color: black;
+    margin-top: 5rem;
+    margin-bottom: 13rem;
+}
+
+.add-field{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-color: #ADD594;
+    border-width: 3px;
+    outline: none;
+
+    width: 500px;
+
+    padding-bottom: 10px;
+    
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.add-field::placeholder{
+    color: rgb(197, 197, 197);
+}
+
+.add-btn{
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    width: 160px;
+    height: 50px;
+
+    background-color: #ADD594;
+    color: white;
+
+    font-family: Roboto;
+    font-size: 30px;
+    font-weight: bold;
+    
+    box-shadow: 0px 0px 20px 10px rgba(110, 110, 110, 0.123);
+}

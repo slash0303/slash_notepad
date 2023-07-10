@@ -70,38 +70,39 @@ function Render(){
 function noteBoxSetCont(cate, note, div){
     /* cate버튼 추가 */
     for(x=0; x < cate.length; x++){
-      let cateKey = cate[x];
-      let noteArr = note[cateKey];
+        console.log(note)
+        let cateKey = cate[x];
+        let noteArr = note[cateKey];
+        console.log(noteArr);
 
-      let cateBtn = document.createElement("button");
-      let cateTxt = document.createTextNode(cateKey);
-      let cateDiv = document.createElement("div");
+        let cateBtn = document.createElement("button");
+        let cateTxt = document.createTextNode(cateKey);
+        let cateDiv = document.createElement("div");
 
-      /* cateDiv 속성 설정 */
-      cateDiv.setAttribute("id", cateKey + "-div-" + x);
-      cateDiv.setAttribute("class", "side-cate-area");
-      /* cateBtn 속성 설정 */
-      cateBtn.setAttribute("id", cateKey + x);
-      cateBtn.setAttribute("class", "side-cate-btn");
-      cateBtn.appendChild(cateTxt);
-      /* 요소 추가 */
-      div.appendChild(cateDiv);
-      cateDiv.appendChild(cateBtn);
-
-      /* note버튼 (cate의 하위요소) 추가 */
+        /* cateDiv 속성 설정 */
+        cateDiv.setAttribute("id", cateKey + "-div-" + x);
+        cateDiv.setAttribute("class", "side-cate-area");
+        /* cateBtn 속성 설정 */
+        cateBtn.setAttribute("id", cateKey + x);
+        cateBtn.setAttribute("class", "side-cate-btn");
+        cateBtn.appendChild(cateTxt);
+        /* 요소 추가 */
+        div.appendChild(cateDiv);
+        cateDiv.appendChild(cateBtn);
+        /* note버튼 (cate의 하위요소) 추가 */
       for (y = 0; y < noteArr.length; y++){
-          let noteName = noteArr[y];
+            let noteName = noteArr[y];
 
-          /* noteBtn 속성 설정 */
-          let noteBtn = document.createElement("button");
-          let noteTxt = document.createTextNode(noteName);
-          let noteId = `notePage-${cateKey}-${noteName}-${x}-${y}`
-          noteBtn.setAttribute("id", noteId);
-          noteBtn.setAttribute("class", "side-note-btn");
-          noteBtn.setAttribute("onclick", "pageTrans(id)");
-          noteBtn.appendChild(noteTxt);
-          /* 요소 추가 */
-          cateDiv.appendChild(noteBtn);
+            /* noteBtn 속성 설정 */
+            let noteBtn = document.createElement("button");
+            let noteTxt = document.createTextNode(noteName);
+            let noteId = `notePage-${cateKey}-${noteName}-${x}-${y}`
+            noteBtn.setAttribute("id", noteId);
+            noteBtn.setAttribute("class", "side-note-btn");
+            noteBtn.setAttribute("onclick", "pageTrans(id)");
+            noteBtn.appendChild(noteTxt);
+            /* 요소 추가 */
+            cateDiv.appendChild(noteBtn);
       }
   }
 }

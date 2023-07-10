@@ -21,6 +21,7 @@ def note_sav():
     cate = received_params["cate"]
     note = received_params["note"]
 
+    # 이전 json에 덮어쓰기
     prev_notes = jsonE.load("./static/data/note_text.json")
     try:
         prev_notes[cate][note] = received_note
@@ -29,10 +30,41 @@ def note_sav():
         data_form[note] = received_note
         prev_notes[cate] = data_form
 
-    
     jsonE.dumps("./static/data/note_text.json", prev_notes, silent=True)
+    
+    # recent_manage 인자
+    note_dict = {"cate": cate, "note": note}
+    recent_manage(note_dict)
     return ""
 
+@app.route("/add_page", methods=["GET"])
+def add_page():
+    return render_template("add_page.html")
+
+# recent notes 항목 관리 함수
+def recent_manage(current_note: dict):
+    note_data = jsonE.load("./static/data/note_data.json")
+    rec_notes = note_data["recNotes"]["cateTitl"]
+    rec_len = len(rec_notes)
+    if rec_notes in current_note["note"]:
+        pass
+    else:
+        del rec_notes[rec_len - 1]
+        new_rec_notes = [current_note["note"]] + rec_notes
+        note_data["recNotes"]["cateTitl"] = new_rec_notes
+        jsonE.dumps("./static/data/note_data.json", note_data)
+    return ""
+
+# 추가된 노트 관리 함수
+def add_manage(added_note:dict):
+    note_data = jsonE.load("./static/data/note_text.json")
+    notes = note_data["notes"]
+    try:
+        prev_cate_notes = notes[added_note["cate"]]
+        prev_cate_notes.append(added_note["note"])
+        notes[added_note["cate"]] = prev_cate_notes
+    except:
+        notes[added_note["cate"]] = [added_note["note"]]
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
