@@ -1,19 +1,33 @@
 {
+    "null": {
+        "null": {
+            "noteText": "asdfasdfasdfa",
+            "chain": {}
+        }
+    },
     "Android dev": {
-        "note": {
-            "noteText": "ㅁㅇㄻㄴㅇㄻㄴㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㅁㄴㅇㄻㄴㅇㄹㄹㅇ",
+        "Android Studio": {
+            "noteText": "asdfasdfasdf",
+            "chain": {}
+        },
+        "Fragment": {
+            "noteText": "asdfasdfasfa",
             "chain": {}
         }
     },
     "English grammar": {
-        "note": {
-            "noteText": "ㄹㅇㄹㅇㄹㅇㄹㅇㅁㄴㅇㄻㅇ",
+        "구와 절": {
+            "noteText": "asdfasdfasdf",
+            "chain": {}
+        },
+        "품사와 문장성분": {
+            "noteText": "hdfhgdfhdfghdfh",
             "chain": {}
         }
     },
     "Web dev": {
-        "note": {
-            "noteText": "ㅁㅇㄻㄴㅇㄻㅇㄻㅇㄻㄴㅇ",
+        "CSS": {
+            "noteText": "asdfasdfasdf",
             "chain": {}
         }
     }

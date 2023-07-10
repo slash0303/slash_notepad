@@ -116,30 +116,27 @@ function noteSav(){
     let cate = URLParams.get("cate");
     let note = URLParams.get("note");
 
-    // note_text.json 불러옴
-    fetch("../static/data/note_text.json").then(response=>response.json())
-    .then(noteTexts=>{
-        // 메모 json 객체
-        let textObj = {
-            note:{
-                "noteText": noteText,
-                "chain":{}
-            }
-        };
+    // 메모 json 객체
+    let textObj ={
+        "note": {
+            "noteText": noteText,
+            "chain":{}
+        },
+        "params": {
+            "cate": cate,
+            "note": note
+        }
+    }
 
-        // 노트 텍스트 원본 객체에 수정사항을 반영한 노트 덮어쓰기
-        noteTexts[cate] = textObj;
-
-        let data = {
-            method:"POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(noteTexts)
-        };
-        let APIAddress = location.href.split("?")[0];
-        fetch(APIAddress, data).then((res)=>res.text());
-    });
+    let data = {
+        method:"POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(textObj)
+    };
+    let APIAddress = location.href.split("?")[0];
+    fetch(APIAddress, data).then((res)=>res.text());
 }
 
 /** 노트 변경 감지 함수*/
@@ -161,7 +158,12 @@ function noteMainContSet(){
     let fileDir = "../static/data/note_text.json";
     fetch(fileDir).then(response=>response.json())
     .then(noteData=>{
-        let noteText = noteData[cate][note]["noteText"];
-        noteArea.value = noteText;
+        try{
+            let noteText = noteData[cate][note]["noteText"];
+            noteArea.value = noteText;
+        }
+        catch{
+            noteArea.value = "";
+        }
     })
 }
