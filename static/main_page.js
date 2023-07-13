@@ -132,19 +132,12 @@ function setFirTxtColor(id){
     const hiColor = "#8CD75E"
     const black = "#000000"
 
-    if(id == "recCate"){
-        recCate.style.color = hiColor;
-        recNote.style.color = black;
-        allNote.style.color = black;
-    }
-    else if(id == "recNote"){
+    if(id == "recNote"){
         recNote.style.color = hiColor;
-        recCate.style.color = black;
         allNote.style.color = black
     }
     else if(id == "allNote"){
         allNote.style.color = hiColor;
-        recCate.style.color = black;
         recNote.style.color = black;
     }
 }

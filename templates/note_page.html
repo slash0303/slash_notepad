@@ -25,7 +25,7 @@
         <div id="noteBox" class="sidebox">
             <div id="recDiv" class="area-box">
                 <button id="boxRecTitl" class="sidebox-title-button">
-                    <h1>Recent notes</h1>
+                    <h1>Recents</h1>
                 </button>
             </div>
             <div id="chnDiv" class="area-box">
@@ -41,8 +41,35 @@
         </div>
         <textarea class="note-text" id="textBox" spellcheck="false"></textarea>
         <div id="toolBox" class="sidebox">
-            <div id="itemsRow" style="display: flex;">
-            
+            <div id="item-textAttr" class="item">
+                <button class="sidebox-title-button">
+                    <h1>Text attribute</h1>
+                </button>
+                <div id="interArea-textAttr" class="inter-text-attr">
+                    <button class="tool-btn"><b>B</b></button>
+                    <button class="tool-btn"><em>I</em></button>
+                    <button class="tool-btn"><u>U</u></button>
+                    <button class="tool-btn"><s>S</s></button>
+                </div>
+            </div>
+            <div id="item-textSize" class="item">
+                <button class="sidebox-title-button">
+                    <h1>Text size</h1>
+                </button>
+                <div id="interArea-textSize" class="inter-text-size">
+                    <input value="20" class="tool-input" maxlength="3">
+                    <div style="font-size: 25px; font-family: Roboto; font-weight: 500;">px</div>
+                </div>
+            </div>
+            <div id="item-textAlign" class="item">
+                <button class="sidebox-title-button">
+                    <h1>Text align</h1>
+                </button>
+                <div id="interArea-textAlign" class="inter-text-attr">
+                    <button id="alignLeft" class="tool-btn" style="width: 40px; height: 40px;"><img src="../static/resource/icon/ham_left.svg"></button>
+                    <button id="alignCenter" class="tool-btn" style="width: 40px; height: 40px;"><img src="../static/resource/icon/ham_center.svg"></button>
+                    <button id="alignRight" class="tool-btn" style="width: 40px; height: 40px;"><img src="../static/resource/icon/ham_right.svg"></button>
+                </div>
             </div>
         </div>
     </main>

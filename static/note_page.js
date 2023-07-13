@@ -74,6 +74,7 @@ function noteBoxSetCont(cate, note, div){
         let cateKey = cate[x];
         let noteArr = note[cateKey];
         console.log(noteArr);
+        console.log(cateKey);
 
         let cateBtn = document.createElement("button");
         let cateTxt = document.createTextNode(cateKey);
@@ -90,7 +91,7 @@ function noteBoxSetCont(cate, note, div){
         div.appendChild(cateDiv);
         cateDiv.appendChild(cateBtn);
         /* note버튼 (cate의 하위요소) 추가 */
-      for (y = 0; y < noteArr.length; y++){
+        for (y = 0; y < noteArr.length; y++){
             let noteName = noteArr[y];
 
             /* noteBtn 속성 설정 */
@@ -103,8 +104,8 @@ function noteBoxSetCont(cate, note, div){
             noteBtn.appendChild(noteTxt);
             /* 요소 추가 */
             cateDiv.appendChild(noteBtn);
-      }
-  }
+        }
+    }
 }
 
 /*노트 저장 함수 */

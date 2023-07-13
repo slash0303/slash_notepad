@@ -7,13 +7,41 @@
     },
     "Android dev": {
         "Android Studio": {
-            "noteText": "asdfasdf",
+            "noteText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas suscipit aliquet massa, a viverra orci iaculis in. Vivamus mollis tellus sit amet orci cursus semper. Nulla ut interdum velit. Etiam varius eros sit amet volutpat consequat. Etiam vel porttitor arcu. Fusce pharetra, sem vitae finibus iaculis, erat felis feugiat leo, eget placerat arcu purus at diam. Suspendisse vel commodo sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla eget aliquet orci.\n\nAenean vel libero vel risus blandit ultrices non at diam. Fusce cursus ut urna sit amet lobortis. Etiam gravida dui fringilla ex laoreet mattis. Integer semper lectus vel enim ullamcorper tincidunt vitae et dui. Integer ac molestie nunc. Fusce a varius ligula. In id sollicitudin dui. Mauris condimentum diam vel tortor semper aliquet. Nulla accumsan purus vitae leo elementum, molestie pretium orci eleifend. Nam pharetra aliquet turpis fringilla viverra. Aenean euismod vitae metus vitae ultrices. Fusce tellus mauris, sodales sed tellus a, efficitur dignissim sem. Curabitur sodales congue orci, nec commodo felis ullamcorper vitae. Suspendisse ac pellentesque justo, id luctus tortor.",
             "chain": {}
         }
     },
     "asap": {
         "우우우ㅜ": {
             "noteText": "이거지 ㅋㅋ",
+            "chain": {}
+        }
+    },
+    "hello": {
+        "world": {
+            "noteText": "asdf",
+            "chain": {}
+        },
+        "fuck you": {
+            "noteText": "asdf",
+            "chain": {}
+        }
+    },
+    "asdffasdf": {
+        "afd": {
+            "noteText": "asdfasdfasdasdfasdfasdfjkgjhgkjhgkjhgkjhgjkjhgjkjhgjkjhgkjhgkjhgkjhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhkjhghjkj",
+            "chain": {}
+        }
+    },
+    "English grammar": {
+        "품사와 문장성분": {
+            "noteText": "ㅁㅁㅁㅁㄴㅇ",
+            "chain": {}
+        }
+    },
+    "Web dev": {
+        "HTML": {
+            "noteText": "aasdfasdfas",
             "chain": {}
         }
     }
