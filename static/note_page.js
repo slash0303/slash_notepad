@@ -169,3 +169,37 @@ function noteMainContSet(){
         }
     })
 }
+
+function textAlign(id){
+    let alignLBtn = document.getElementById("alignLeft");
+    let alignCBtn = document.getElementById("alignCenter");
+    let alignRBtn = document.getElementById("alignRight");
+    let textArea = document.getElementById("textBox");
+
+    const hiColor = "#D9D9D9";
+    const noneColor = "#00000000";
+
+    switch(id){
+        case "alignLeft":
+            textArea.style["textAlign"]= "left";
+            alignLBtn.style["backgroundColor"] = hiColor;
+            alignCBtn.style["backgroundColor"] = noneColor;
+            alignRBtn.style["backgroundColor"] = noneColor;
+            break;
+
+        case "alignCenter":
+            textArea.style["textAlign"] = "center";
+            alignCBtn.style["backgroundColor"] = hiColor;
+            alignLBtn.style["backgroundColor"] = noneColor;
+            alignRBtn.style["backgroundColor"] = noneColor;
+            break;
+
+        case "alignRight":
+            textArea.style["textAlign"] = "right";
+            alignRBtn.style["backgroundColor"] = hiColor;
+            alignLBtn.style["backgroundColor"] = noneColor;
+            alignCBtn.style["backgroundColor"] = noneColor;
+            break;
+    }
+    
+}
