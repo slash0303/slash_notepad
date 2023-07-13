@@ -108,11 +108,11 @@ function noteBoxSetCont(cate, note, div){
     }
 }
 
-/*노트 저장 함수 */
+/** 노트 저장 함수 */
 function noteSav(){
     // textArea 값 읽어들임
     let noteArea = document.getElementById("textBox");
-    let noteText = noteArea.value;
+    let noteText = noteArea.innerHTML;
     // URL 파라미터 중 cate, note 읽어들임 
     let URLParams = new URL(location.href).searchParams;
     let cate = URLParams.get("cate");
@@ -150,9 +150,10 @@ function noteChangeDetect(){
     });
 }
 
-/** textarea 채워넣는 함수 */
+/** textarea(교체 후 div) 채워넣는 함수 */
 function noteMainContSet(){
     let noteArea = document.getElementById("textBox");
+    // url에서 파라미터 가져오기 (cate, note)
     let URLParams = new URL(location.href).searchParams;
     let cate = URLParams.get("cate");
     let note = URLParams.get("note");
@@ -162,14 +163,15 @@ function noteMainContSet(){
     .then(noteData=>{
         try{
             let noteText = noteData[cate][note]["noteText"];
-            noteArea.value = noteText;
+            noteArea.innerText = noteText;
         }
         catch{
-            noteArea.value = "";
+            noteArea.innerText = "";
         }
-    })
+    });
 }
 
+/** tool box의 text align 기능 함수 */
 function textAlign(id){
     let alignLBtn = document.getElementById("alignLeft");
     let alignCBtn = document.getElementById("alignCenter");
@@ -202,4 +204,23 @@ function textAlign(id){
             break;
     }
     
+}
+
+/** 텍스트 선택 감지 함수 */
+function textSelect(){
+    selectedArea = window.getSelection();
+
+    addEventListener("selectionchange", ()=>{
+        // text 선택한 부분 버튼 누르면 효과 적용되게 만들기
+    });
+}
+
+/** 텍스트 사이즈 변경 함수 - 선택 감지 후 특정 부분만 키우기. 선택 된 부분은 div로 감싸기 */
+function textSize(){
+    
+}
+
+/** 텍스트 속성 변경 함수 - 선택 감지 후 특정 부분만 적용시키기. 선택 된 부분에 태그 달기 */
+function textAttr(){
+
 }
