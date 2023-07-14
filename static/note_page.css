@@ -41,7 +41,7 @@ main{
 
     caret-color: #95d16f;
 
-    transition: font-size 0.2s;
+    transition: all 0.2s;
 }
 
 .note-text::-webkit-scrollbar{

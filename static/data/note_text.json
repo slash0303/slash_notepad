@@ -7,12 +7,14 @@
     },
     "Android dev": {
         "Android Studio": {
-            "noteText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales vehicula justo in fermentum. Vivamus quis faucibus turpis, eget sollicitudin arcu. In egestas efficitur ipsum sed tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in rhoncus lacus. Integer non quam quis ligula pellentesque bibendum eget sit amet tellus. Integer molestie risus eros, id ultrices odio tempus at. Nullam malesuada sodales nisi maximus efficitur. Proin commodo nibh ut ullamcorper dapibus.<br><br>Quisque fermentum vel dui quis molestie. Aenean tempor rhoncus ligula, at condimentum justo laoreet vel. Duis eget bibendum velit. Phasellus aliquam commodo nibh, ac faucibus urna ultrices eu. Phasellus mattis nisi diam, at ultrices justo mattis eu. In hac habitasse platea dictumst. Donec faucibus nisi non gravida lacinia. Curabitur quis lacus tempor, cursus ipsum sed, volutpat erat. Suspendisse molestie tempus justo, non porta tortor facilisis a. Mauris lectus ex, interdum eget tellus in, rutrum pretium nulla. Etiam quis lorem leo. Mauris id tristique lorem, in congue elit. Donec eget ipsum quis tellus vestibulum ullamcorper ut id dolor. Nunc nisl neque, convallis at pharetra quis, vestibulum vitae nisi. Sed a dictum ligula, sit amet vestibulum mi. Suspendisse eu lorem commodo, fermentum risus a, condimentum erat. selection area",
-            "chain": {}
+            "noteText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales vehicula justo in fermentum. Vivamus quis faucibus turpis, eget sollicitudin arcu. In egestas efficitur ipsum sed tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in rhoncus lacus. Integer non quam quis ligula pellentesque bibendum eget sit amet tellus. Integer molestie risus eros, id ultrices odio tempus at. Nullam malesuada sodales nisi maximus efficitur. Proin commodo nibh ut ullamcorper dapibus.<div><br></div><div>Quisque fermentum vel dui quis molestie. Aenean tempor rhoncus ligula, at condimentum justo laoreet vel. Duis eget bibendum velit. Phasellus aliquam commodo nibh, ac faucibus urna ultrices eu. Phasellus mattis nisi diam, at ultrices justo mattis eu. In hac habitasse platea dictumst. Donec faucibus nisi non gravida lacinia. Curabitur quis lacus tempor, cursus ipsum sed, volutpat erat. Suspendisse molestie tempus justo, non porta tortor facilisis a. Mauris lectus ex, interdum eget tellus in, rutrum pretium nulla. Etiam quis lorem leo. Mauris id tristique lorem, in congue elit. Donec eget ipsum quis tellus vestibulum ullamcorper ut id dolor. Nunc nisl neque, convallis at pharetra quis, vestibulum vitae nisi. Sed a dictum ligula, sit amet vestibulum mi. Suspendisse eu lorem commodo, fermentum risus a, condimentum erat. selection area</div>",
+            "chain": {},
+            "align": "left"
         },
         "Fragment": {
             "noteText": "asdfasdf",
-            "chain": {}
+            "chain": {},
+            "align": "right"
         }
     },
     "asap": {
@@ -47,6 +49,20 @@
         "HTML": {
             "noteText": "aasdfasdfas",
             "chain": {}
+        }
+    },
+    "C  ": {
+        "Object oriented programming": {
+            "noteText": "a",
+            "chain": {},
+            "align": ""
+        }
+    },
+    "Kotiln": {
+        "relationship of java": {
+            "noteText": "asdfㄹ",
+            "chain": {},
+            "align": "left"
         }
     }
 }

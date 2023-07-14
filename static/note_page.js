@@ -113,6 +113,7 @@ function noteSav(){
     // textArea 값 읽어들임
     let noteArea = document.getElementById("textBox");
     let noteText = noteArea.innerHTML;
+    let noteAlign = getComputedStyle(noteArea)["textAlign"];
     // URL 파라미터 중 cate, note 읽어들임 
     let URLParams = new URL(location.href).searchParams;
     let cate = URLParams.get("cate");
@@ -122,13 +123,16 @@ function noteSav(){
     let textObj ={
         "note": {
             "noteText": noteText,
-            "chain":{}
+            "chain": {},
+            "align": noteAlign
         },
         "params": {
             "cate": cate,
             "note": note
         }
     }
+
+    console.log(textObj);
 
     let data = {
         method:"POST",
@@ -164,6 +168,7 @@ function noteMainContSet(){
         try{
             let noteText = noteData[cate][note]["noteText"];
             noteArea.innerText = noteText;
+            noteArea.style["textAlign"] = noteData[cate][note]["align"];
         }
         catch{
             noteArea.innerText = "";
@@ -203,6 +208,8 @@ function textAlign(id){
             alignCBtn.style["backgroundColor"] = noneColor;
             break;
     }
+
+    noteSav();
     
 }
 
@@ -212,6 +219,7 @@ function textSelect(){
 
     addEventListener("selectionchange", ()=>{
         // text 선택한 부분 버튼 누르면 효과 적용되게 만들기
+        console.log("selected");
     });
 }
 
